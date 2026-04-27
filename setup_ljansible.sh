@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+################################# CREAR USUARIO Y CONFIGURAR SSH 
 USERNAME="ljansible"
 SSH_PUB_KEY="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN9tAu/9cZIZXAn6H02WC/VeBFjZh/720ENshziDqIN0 ljansible"
 
