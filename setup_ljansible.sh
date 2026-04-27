@@ -2,6 +2,7 @@
 set -e
 
 USERNAME="ljansible"
+PASSWORD="{v.xhQK',IlChHi/]5u!"
 SSH_PUB_KEY="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN9tAu/9cZIZXAn6H02WC/VeBFjZh/720ENshziDqIN0 ljansible"
 
 if [ "$EUID" -ne 0 ]; then
@@ -10,9 +11,7 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 useradd -m -s /bin/bash "$USERNAME"
-
-echo "Ingresa la contraseña para $USERNAME:"
-passwd "$USERNAME"
+echo "${USERNAME}:${PASSWORD}" | chpasswd
 
 if ! grep -q "^${USERNAME} ALL=(ALL) NOPASSWD: ALL" /etc/sudoers; then
   echo "${USERNAME} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
